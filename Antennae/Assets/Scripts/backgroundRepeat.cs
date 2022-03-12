@@ -6,14 +6,10 @@ using UnityEngine;
 public class backgroundRepeat : MonoBehaviour
 {
     public GameObject[] backgroundImages;
-    private Camera mainCamera;
     private float speed = 4.0f;
-    private Vector2 screenBounds;
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         foreach(GameObject obj in backgroundImages)
             loadChildObjects(obj);
 
@@ -22,7 +18,7 @@ public class backgroundRepeat : MonoBehaviour
     void loadChildObjects(GameObject parent)
     {
         float parentWidth = parent.GetComponent<SpriteRenderer>().bounds.size.x;
-        int numberOfChildren = (int)Mathf.Ceil(screenBounds.x * 2 / parentWidth)+1;
+        int numberOfChildren = (int)Mathf.Ceil(levelController.screenBounds.x * 2 / parentWidth)+1;
 
         GameObject clone = Instantiate(parent) as GameObject;
         for( int i = 0; i < numberOfChildren; i++)
@@ -50,7 +46,7 @@ public class backgroundRepeat : MonoBehaviour
             GameObject lastChild = children[children.Length - 1].gameObject;
             float halfWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x;
             //camera right edge 
-            if (mainCamera.transform.position.x + screenBounds.x > lastChild.transform.position.x + halfWidth)
+            if (levelController.mainCamera.transform.position.x + levelController.screenBounds.x > lastChild.transform.position.x + halfWidth)
             {
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector2(lastChild.transform.position.x + halfWidth * 2, lastChild.transform.position.y);

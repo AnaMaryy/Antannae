@@ -7,7 +7,6 @@ public class powerUp : MonoBehaviour
     private float speed = 6.0f;
     public int score = 10;
     private Rigidbody2D rb;
-    private Vector2 screenBounds;
     public int charge = 3;
     // Start is called before the first frame update
     void Start()
@@ -15,8 +14,8 @@ public class powerUp : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-speed, 0);
 
-        Camera mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+       // Camera mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //screenBounds = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class powerUp : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, -5) * Time.deltaTime * 20);
         //destroy asteroids that are off screen
-        if (transform.position.x < screenBounds.x * 1.5 * -1)
+        if (transform.position.x < levelController.screenBounds.x * 1.5 * -1)
         {
             Destroy(this.gameObject);
         }

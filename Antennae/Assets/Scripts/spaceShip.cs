@@ -7,8 +7,8 @@ public class spaceShip : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 movement;
-    private float shipWidth;
-    public int health = 100;
+    //private float shipWidth;
+    public int health  = 100;
 
     public gun Gun;
     public GameObject Explosion;
@@ -17,17 +17,19 @@ public class spaceShip : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shipWidth = GetComponentInChildren<SpriteRenderer>().bounds.extents.x;
+        //shipWidth = GetComponentInChildren<SpriteRenderer>().bounds.extents.x;
     }
 
     // Update is called once per frame
     void Update()
     {
         //detect input
+        
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (Input.GetKeyDown("space"))
         {
-            if(levelController.powerUp > 0){ 
+            if (levelController.powerUp > 0)
+            {
                 Gun.shootMultipleBullets();
                 levelController.powerUp -= 1;
             }
@@ -36,7 +38,8 @@ public class spaceShip : MonoBehaviour
                 Gun.shootBullet();
             }
         }
-        checkDeath();
+        
+       
 
 
     }
@@ -44,13 +47,7 @@ public class spaceShip : MonoBehaviour
     {
         moveShip(movement);
     }
-    private void checkDeath()
-    {
-        if(health <= 0)
-        {
-            Debug.Log("GameOver");
-        }
-    }
+    
     public void takeDamage(int damage)
     {
         health -= damage;
@@ -81,6 +78,8 @@ public class spaceShip : MonoBehaviour
         if (other.gameObject.tag == "PowerUp")
         {
             int charge = other.gameObject.GetComponent<powerUp>().charge;
+            int score = other.gameObject.GetComponent<powerUp>().score;
+            levelController.score += score;
             levelController.powerUp += charge;
             Destroy(other.gameObject);
         }
