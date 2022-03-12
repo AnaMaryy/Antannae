@@ -6,6 +6,8 @@ public class waveSpawner : MonoBehaviour
 {
     public GameObject asteroidPrefab;
     public GameObject powerUpPrefab;
+    public GameObject enemyOnePrefab;
+
 
     public float respawnTime = 1.0f;
     public Vector2 screenBounds;
@@ -29,13 +31,36 @@ public class waveSpawner : MonoBehaviour
         obj.transform.position = new Vector2(screenBounds.x * 2, Random.Range(screenBounds.y, -screenBounds.y));
 
     }
+    private void spawnEnemyOne()
+    {
+        GameObject obj = Instantiate(enemyOnePrefab);
+        obj.transform.position = new Vector2(screenBounds.x * 2, Random.Range(screenBounds.y, -screenBounds.y));
+
+    }
+    private void spawnEnemyCluster()
+    {
+        float spacing = 0;
+        float y = Random.Range(screenBounds.y, -screenBounds.y);
+
+
+        float shipLength = enemyOnePrefab.GetComponentInChildren<SpriteRenderer>().bounds.extents.x;
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject obj = Instantiate(enemyOnePrefab);
+            obj.transform.position = new Vector2(screenBounds.x * 2 + spacing, y);
+            spacing += shipLength + 20;
+        }
+
+    }
     private IEnumerator wave()
     {
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnAsteroids();
+            //spawnAsteroids();
             spawnPowerUps();
+            spawnEnemyCluster();
+
         }
     }
 }

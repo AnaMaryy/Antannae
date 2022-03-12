@@ -6,27 +6,26 @@ using UnityEngine.UI;
 
 public class guiDisplay : MonoBehaviour
 {
-    private int health;
-    private int powerup;
-    private spaceShip spaceship;
+  
+
+    private spaceShip ship;
     public Text healthText;
     public Text poweupText;
+    public Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
-       spaceship = (spaceShip)FindObjectOfType(typeof(spaceShip));
-        health = spaceship.health;
-        powerup = spaceship.powerUp;
+        ship = (spaceShip)FindObjectOfType(typeof(spaceShip));
     }
 
     // Update is called once per frame
     void Update()
     {
-        health = spaceship.health;
-        powerup = spaceship.powerUp;
-        healthText.text = "Health : " + health;
-        poweupText.text = "PowerUp : " + powerup; 
-
+     
+        healthText.text = "Health : " + ship.health;
+        poweupText.text = "PowerUp : " + levelController.powerUp;
+        scoreText.text = "Score : " + levelController.score;
 
     }
 }

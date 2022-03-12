@@ -9,20 +9,15 @@ public class spaceShip : MonoBehaviour
     private Vector2 movement;
     private float shipWidth;
     public int health = 100;
-    public int powerUp = 0;
 
-    //public Transform gun;
     public gun Gun;
-    //public GameObject Bullet;
     public GameObject Explosion;
 
-    //private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         shipWidth = GetComponentInChildren<SpriteRenderer>().bounds.extents.x;
-
     }
 
     // Update is called once per frame
@@ -32,9 +27,9 @@ public class spaceShip : MonoBehaviour
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (Input.GetKeyDown("space"))
         {
-            if(powerUp > 0){ 
+            if(levelController.powerUp > 0){ 
                 Gun.shootMultipleBullets();
-                powerUp -= 1;
+                levelController.powerUp -= 1;
             }
             else
             {
@@ -74,7 +69,7 @@ public class spaceShip : MonoBehaviour
             Debug.Log("Asteroid collision detected");
             GameObject explosion = Instantiate(Explosion);
             explosion.transform.position = transform.position;
-            
+
             int damage = other.gameObject.GetComponent<asteroid>().damage;
             takeDamage(damage);
             //removes asteroid
@@ -86,9 +81,23 @@ public class spaceShip : MonoBehaviour
         if (other.gameObject.tag == "PowerUp")
         {
             int charge = other.gameObject.GetComponent<powerUp>().charge;
-            powerUp += charge;
+            levelController.powerUp += charge;
             Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "Enemy1")
+        {
+
+            Debug.Log("Enemy1 collision detected");
+            GameObject explosion = Instantiate(Explosion);
+            explosion.transform.position = transform.position;
+
+            int damage = other.gameObject.GetComponent<enemyOne>().damage;
+            takeDamage(damage);
+            //removes enemy
+            Destroy(other.gameObject);
+            Destroy(explosion, 1);
         }
 
     }
+
 }

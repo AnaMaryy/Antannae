@@ -8,6 +8,7 @@ public class asteroid : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     public int damage = 20;
+    public int health = 20;
     // Start is called before the first frame update
     void Start()
     {

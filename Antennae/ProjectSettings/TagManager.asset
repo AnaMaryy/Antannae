@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Asteroid
   - PowerUp
+  - Enemy1
   layers:
   - Default
   - TransparentFX

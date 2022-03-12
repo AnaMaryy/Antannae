@@ -56,17 +56,20 @@
     <Analyzer Include="D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\guiDisplay.cs" />
+    <Compile Include="Assets\Scripts\powerUp.cs" />
     <Compile Include="Assets\Scripts\asteroid.cs" />
     <Compile Include="Assets\Scripts\backgroundRepeat.cs" />
-    <Compile Include="Assets\Scripts\spawnAsteroids.cs" />
+    <Compile Include="Assets\Scripts\gun.cs" />
     <Compile Include="Assets\Scripts\rbmovement.cs" />
     <Compile Include="Assets\Scripts\boundaries.cs" />
+    <Compile Include="Assets\Scripts\waveSpawner.cs" />
     <Compile Include="Assets\Scripts\bullet.cs" />
     <Compile Include="Assets\Scripts\spaceShip.cs" />
-    <Compile Include="Assets\Scripts\guiDisplay.cs" />
-    <Compile Include="Assets\Scripts\gun.cs" />
-    <Compile Include="Assets\Scripts\powerUp.cs" />
-    <Compile Include="Assets\Scripts\waveSpawner.cs" />
+    <Compile Include="Assets\Scripts\enemyOne.cs" />
+    <Compile Include="Assets\Scripts\levelController.cs" />
+    <Compile Include="Assets\Scripts\spaceShipCollisions.cs" />
+    <Compile Include="Assets\Scripts\spaceShipCollisions1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

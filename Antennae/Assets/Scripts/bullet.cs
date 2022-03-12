@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     public float speed = 15.0f;
     private Vector2 screenBounds;
+    public int damage = 20;
     public GameObject Explosion;
     // Start is called before the first frame update
     void Start()
@@ -24,22 +25,35 @@ public class bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void something()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Asteroid")
         {
+            
+            GameObject explosion = Instantiate(Explosion);
+            explosion.transform.position = transform.position;
+
+
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            Destroy(explosion, 1);
+            //int asteroidHealth = 
+            //if ()
+
+
+
+        }
+        if (other.gameObject.tag == "Enemy1")
+        {
+
             GameObject explosion = Instantiate(Explosion);
             explosion.transform.position = transform.position;
 
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             Destroy(explosion, 1);
-
-
+            //int asteroidHealth = 
+            //if ()
 
         }
     }

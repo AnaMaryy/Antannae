@@ -5,6 +5,7 @@ using UnityEngine;
 public class powerUp : MonoBehaviour
 {
     private float speed = 6.0f;
+    public int score = 10;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     public int charge = 3;
