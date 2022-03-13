@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52695997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52695998}
+  - component: {fileID: 52696000}
+  - component: {fileID: 52695999}
+  m_Layer: 5
+  m_Name: Wave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &52695998
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52695997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.33381096, y: 0.36707476, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1872722788}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -15}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &52695999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52695997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.32452828, b: 0.8754494, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 150
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 150
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Wave '
+--- !u!222 &52696000
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52695997}
+  m_CullTransparentMesh: 1
 --- !u!1 &54667273
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +825,6 @@ GameObject:
   - component: {fileID: 677729316}
   - component: {fileID: 677729319}
   - component: {fileID: 677729321}
-  - component: {fileID: 677729322}
   - component: {fileID: 677729318}
   m_Layer: 0
   m_Name: SpaceShip
@@ -848,20 +926,6 @@ MonoBehaviour:
   health: 100
   Gun: {fileID: 762183247}
   Explosion: {fileID: 7077383317449039307, guid: 75adad6475f743244b7c04bcf18ddc3a, type: 3}
---- !u!114 &677729322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677729315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc8df622ccf74a4ea545025700ecd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Explosion: {fileID: 0}
-  SpaceShip: {fileID: 0}
 --- !u!1 &762183245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1141,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1303020626}
   - component: {fileID: 1303020625}
-  - component: {fileID: 1303020627}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -1100,7 +1163,10 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 6540371843865943368, guid: f976c25870ae0f34b8fbd1eb7cee8f6f, type: 3}
   powerUpPrefab: {fileID: 4292991523536045302, guid: 473fa914e8f9bfd45bbf217ece614d7c, type: 3}
   enemyOnePrefab: {fileID: 6640035732403833177, guid: 7c9633bee51ba074da86238d93c78502, type: 3}
-  respawnTimePowerUp: 1
+  waves: []
+  nextWave: 0
+  timeBetweenWaves: 2
+  countDownWave: 0
 --- !u!4 &1303020626
 Transform:
   m_ObjectHideFlags: 0
@@ -1115,20 +1181,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1303020627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303020624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70cca7710674e3428476a807b04bb33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOverScreen: {fileID: 215993409}
-  SpaceShip: {fileID: 677729315}
 --- !u!1 &1515728055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1260,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515728055}
   m_CullTransparentMesh: 1
+--- !u!1 &1556011527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556011529}
+  - component: {fileID: 1556011528}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1556011528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556011527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70cca7710674e3428476a807b04bb33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverScreen: {fileID: 215993409}
+  SpaceShip: {fileID: 677729315}
+--- !u!4 &1556011529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556011527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.43, y: 0.13048619, z: -150.88628}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668596564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1473,7 @@ MonoBehaviour:
   healthText: {fileID: 1515728057}
   poweupText: {fileID: 54667275}
   scoreText: {fileID: 1006192445}
+  waveText: {fileID: 52695999}
 --- !u!114 &1872722785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1549,7 @@ RectTransform:
   - {fileID: 1515728056}
   - {fileID: 54667274}
   - {fileID: 1006192447}
+  - {fileID: 52695998}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

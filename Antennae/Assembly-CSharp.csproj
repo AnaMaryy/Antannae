@@ -57,20 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\guiDisplay.cs" />
-    <Compile Include="Assets\Scripts\spaceShipCollisions.cs" />
+    <Compile Include="Assets\Scripts\gameOverScreen.cs" />
     <Compile Include="Assets\Scripts\powerUp.cs" />
     <Compile Include="Assets\Scripts\asteroid.cs" />
     <Compile Include="Assets\Scripts\backgroundRepeat.cs" />
-    <Compile Include="Assets\Scripts\spaceShipCollisions1.cs" />
     <Compile Include="Assets\Scripts\gun.cs" />
-    <Compile Include="Assets\Scripts\rbmovement.cs" />
     <Compile Include="Assets\Scripts\boundaries.cs" />
     <Compile Include="Assets\Scripts\enemyOne.cs" />
     <Compile Include="Assets\Scripts\waveSpawner.cs" />
     <Compile Include="Assets\Scripts\bullet.cs" />
     <Compile Include="Assets\Scripts\levelController.cs" />
     <Compile Include="Assets\Scripts\spaceShip.cs" />
-    <Compile Include="Assets\gameOverScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

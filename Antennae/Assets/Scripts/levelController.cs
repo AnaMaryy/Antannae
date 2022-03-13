@@ -38,6 +38,10 @@ public  class levelController :MonoBehaviour
     private void Update()
     {
         checkGameEnd();
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
     
     public static void resetLevel()
