@@ -4,6 +4,10 @@ Antannae is a small space-themed shoot-em-up style game made with Unity.
 The game consists of endless waves, each wave ramps up the difficulty with spawning more enemies.
 There are two types of enemies: asteroids that move in a straight line and an enemy ship formation that moves in a sinusoidal wave. Collect powerUps to shoot multiple bullets at the same time.
 
+
+<img src="https://imgur.com/a/eprwvY3"/>
+
+
 ### How to run
 Download the Builds folder and double click on Antannae.exe in Builds/Antennae.exe
 
