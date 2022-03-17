@@ -5,7 +5,7 @@ The game consists of endless waves, each wave ramps up the difficulty with spawn
 There are two types of enemies: asteroids that move in a straight line and an enemy ship formation that moves in a sinusoidal wave. Collect powerUps to shoot multiple bullets at the same time.
 
 
-<img src="https://imgur.com/a/eprwvY3"/>
+<img src="https://i.imgur.com/o4HcACN.png"/>
 
 
 ### How to run
