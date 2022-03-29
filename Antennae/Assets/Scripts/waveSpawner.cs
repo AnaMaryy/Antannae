@@ -28,6 +28,7 @@ public class waveSpawner : MonoBehaviour
     }
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
+    [HideInInspector]
     public List<Wave> waves;
     public int nextWave = 0;
 

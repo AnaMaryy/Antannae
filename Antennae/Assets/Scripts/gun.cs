@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class gun : MonoBehaviour
 {
+    //TODO : dead and alive bullets
     // Start is called before the first frame update
     public GameObject Bullet;
     void Start()
@@ -17,6 +18,7 @@ public class gun : MonoBehaviour
     }
     public void shootBullet()
     {
+        //TODO : pulling bullets
         GameObject bullet = Instantiate(Bullet);
         float speed = bullet.GetComponent<bullet>().speed;
 
